@@ -1,0 +1,12 @@
+.basket-container {
+  width: 360px;
+  background-color: aquamarine;
+  min-height: 100vh;
+  box-shadow: 0 0 10px rgba(36, 46, 48, 0.5);
+}
+.basket-container-sticky {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+}

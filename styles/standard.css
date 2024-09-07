@@ -5,6 +5,7 @@
   --color-midGray: rgb(235, 233, 232);
   --color-fontColor: rgb(36, 46, 48);
   --color-basketBlue: rgb(0, 105, 218);
+  --color-yellow: rgb(246, 194, 67);
 }
 
 * {
@@ -14,4 +15,17 @@
   font-size: 1rem;
   font-family: "montserrat";
   color: var(--color-fontColor);
+}
+
+body {
+  position: relative;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1440px; 
+  margin-left: auto;
+  margin-right: auto; 
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
