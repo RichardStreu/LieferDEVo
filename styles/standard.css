@@ -3,6 +3,7 @@
   --color-lightOrange: rgb(254, 229, 203);
   --color-lightGray: rgb(245, 243, 241);
   --color-midGray: rgb(235, 233, 232);
+  --color-footerGray: rgb(239, 237, 234);
   --color-fontColor: rgb(36, 46, 48);
   --color-basketBlue: rgb(0, 105, 218);
   --color-yellow: rgb(246, 194, 67);
@@ -19,6 +20,7 @@
 
 body {
   position: relative;
+  min-height: 100vh;
 }
 
 .wrapper {
@@ -28,4 +30,8 @@ body {
   margin-right: auto; 
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.margin-top-100 {
+  margin-top: 100px;
 }

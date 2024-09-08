@@ -8,12 +8,5 @@ window.addEventListener("scroll", () => {
   }
 });
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 72) {
-      document.getElementById("basketContainer").classList.add("basket-container-sticky");
-  } else {
-      document.getElementById("basketContainer").classList.remove("basket-container-sticky");
-  }
-});
 
 

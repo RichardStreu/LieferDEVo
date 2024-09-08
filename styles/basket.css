@@ -1,12 +1,31 @@
 .basket-container {
   width: 360px;
-  background-color: aquamarine;
-  min-height: 100vh;
-  box-shadow: 0 0 10px rgba(36, 46, 48, 0.5);
+  background-color: white;
+  box-shadow: 0 0 10px rgba(36, 46, 48, 0.25);
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
-.basket-container-sticky {
-  position: fixed;
+.basketBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 16px;
+  position: sticky;
   top: 0;
-  right: 0;
-  height: 100vh;
+  min-height: calc(100vh - 120px);
+  max-height: 100vh;
+}
+.basket-box-upper {
+  background-color: white;
+  height: 100px;
+}
+.basket-box-middle {
+  background-color: yellow;
+  overflow-y: auto;
+  flex: 1;
+}
+.basket-box-lower {
+  background-color: red;
+  height: 100px;
 }

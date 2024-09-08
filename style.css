@@ -2,8 +2,9 @@
 
 header {
   height: 72px;
-  box-shadow: 0 0 10px rgba(36, 46, 48, 0.5);
-  /* z-index: 1000; */
+  box-shadow: 0 0 10px rgba(36, 46, 48, 0.25);
+  background-color: white;
+  z-index: 5000;
   position: relative;
 }
 header .wrapper {
@@ -12,7 +13,6 @@ header .wrapper {
   justify-content: space-between;
   height: 100%;
 }
-
 .deverando-box {
   display: flex;
   align-items: center;
@@ -67,8 +67,7 @@ main {
   display: flex;
 }
 .food-container {
-  height: 300vh;
-  width: calc(100% - 360px);
+  flex: 1;
   flex-direction: column;
   background-color: var(--color-lightGray);
   position: relative;
@@ -91,7 +90,12 @@ main {
 .food-header-info {
   height: 240px;
   width: 100%;
-  background-color: rgba(172, 255, 47, 0.119);
+  background-color: var(--color-lightGray);
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .companay-name {
   font-size: 2rem;
@@ -103,25 +107,63 @@ main {
 }
 .company-rating-star {
   height: 1rem;
+  margin-right: 0.5rem;
 }
 .discount-description-box {
   background-color: rgb(246, 194, 67);
+  height: 110px;
+  width: 360px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 1rem;
 }
 
 .food-header-navbar {
   height: 100px;
-  background-color: brown;
   display: flex;
   align-items: flex-end;
+  transition: all 0.15s ease-in-out;
+  position: sticky;
+  top: 0;
 }
 .food-header-navbar-sticky {
-  box-shadow: 0 0 10px rgba(36, 46, 48, 0.5);
-  position: fixed;
-  width: calc(100% - 360px);
-  top: 0;
+  box-shadow: 0 0 10px rgba(36, 46, 48, 0.25);
+  background-color: white;
+}
+.food-header-navbar-links-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.food-navbar-link {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+}
+.food-navbar-link:hover {
+  background-color: var(--color-midGray);
+  cursor: pointer;
+}
+.food-navbar-link:focus {
+  background-color: black;
+  font-weight: 700;
+  color: white;
 }
 .food-content-background {
   display: flex;
   justify-content: center;
   background-color: var(--color-lightGray);
+}
+
+/* FOOTER ############################################################################## */
+
+footer {
+  height: 120px;
+  background-color: var(--color-footerGray);
 }
