@@ -1,7 +1,7 @@
 let foods = [
   {
     name: "Italienisch",
-    src: "../assets/img/Italienisch/",
+    src: "../assets/img/Italienisch/pizza-margherita.jpg",
     dishes: [
       {
         name: "Pizza Margherita",
@@ -46,7 +46,7 @@ let foods = [
   },
   {
     name: "Amerikanisch",
-    src: "../assets/img/Amerikanisch/",
+    src: "../assets/img/Amerikanisch/chicken-wings.jpg",
     dishes: [
       {
         name: "Hamburger",
@@ -90,7 +90,7 @@ let foods = [
   },
   {
     name: "Asiatisch",
-    src: "../assets/img/Asiatisch/",
+    src: "../assets/img/Asiatisch/sushiplatte.jpg",
     dishes: [
       {
         name: "Rotes Thai Curry",
@@ -134,7 +134,7 @@ let foods = [
   },
   {
     name: "Beilagen",
-    src: "../assets/img/beilagen/",
+    src: "../assets/img/beilagen/suesskartoffelpommes.jpg",
     dishes: [
       {
         name: "Bruschetta",
@@ -175,7 +175,7 @@ let foods = [
   },
   {
     name: "Deserts",
-    src: "../assets/img/deserts/",
+    src: "../assets/img/deserts/brownies.jpg",
     dishes: [
       {
         name: "Panna Cotta",

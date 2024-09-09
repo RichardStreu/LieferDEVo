@@ -66,11 +66,13 @@ header .wrapper {
 main {
   display: flex;
 }
+/* Food header - info - navbar */
 .food-container {
   flex: 1;
   flex-direction: column;
   background-color: var(--color-lightGray);
   position: relative;
+  padding-bottom: 1rem;
 }
 .food-wrapper {
   padding: 0 16px;
@@ -124,7 +126,7 @@ main {
   height: 100px;
   display: flex;
   align-items: flex-end;
-  transition: all 0.15s ease-in-out;
+  /* transition: all 0.15s ease-in-out; */
   position: sticky;
   top: 0;
 }
@@ -145,6 +147,7 @@ main {
   border: none;
   text-decoration: none;
   transition: all 0.15s ease-in-out;
+  background-color: white;
 }
 .food-navbar-link:hover {
   background-color: var(--color-midGray);
@@ -155,10 +158,91 @@ main {
   font-weight: 700;
   color: white;
 }
+
+/* food-content-container*/
+
 .food-content-background {
   display: flex;
   justify-content: center;
   background-color: var(--color-lightGray);
+}
+.food-content-container {
+  padding-top: 1rem;
+}
+.food-content-image {
+  height: 152px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+.food-content-categorie {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* food-content-render-box */
+
+.dishes-Container {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(36, 46, 48, 0.2);
+  border-radius: 1rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+.dishes-container-upper-part {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dishes-name {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.dishes-add-button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(36, 46, 48, 0.2);
+  border-radius: 50%;
+  color: var(--color-orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 300;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.15s ease-in-out;
+}
+.dishes-add-button:hover {
+  background-color: var(--color-midGray);
+}
+
+.dishes-container-lower-part {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 48px;
+}
+.dishes-text-box {
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  height: 120px;
+}
+.dishes-description {
+  margin-bottom: 0.5rem;
+}
+.dishes-single-price {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.dishes-image {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
 
 /* FOOTER ############################################################################## */
