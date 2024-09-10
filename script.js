@@ -14,13 +14,9 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 72) {
-    document
-      .getElementById("basketBox")
-      .classList.add("basket-box-fixed");
+    document.getElementById("basketBox").classList.add("basket-box-fixed");
   } else {
-    document
-      .getElementById("basketBox")
-      .classList.remove("basket-box-fixed");
+    document.getElementById("basketBox").classList.remove("basket-box-fixed");
   }
 });
 
@@ -38,7 +34,6 @@ function renderFoodContentContainer() {
   }
 }
 
-
 function renderDishesContainer(catIndex) {
   let dishesContainer = "";
   for (
@@ -55,7 +50,11 @@ renderFoodContentContainer();
 
 function renderBasketDishes() {
   document.getElementById("basketBoxRenderContent").innerHTML = "";
-  for (let basketDishesIndex = 0; basketDishesIndex < basket.dishes.length; basketDishesIndex++) {
+  for (
+    let basketDishesIndex = 0;
+    basketDishesIndex < basket.dishes.length;
+    basketDishesIndex++
+  ) {
     let basketDish = getBasketDishesTemplate(basketDishesIndex);
     document.getElementById("basketBoxRenderContent").innerHTML += basketDish;
   }
@@ -68,8 +67,31 @@ function renderBasket() {
 // functions
 
 function addDishesToBasket(catIndex, dishesIndex) {
+  if (basket.dishes.includes(foods[catIndex].dishes[dishesIndex])) {
+    let foodDish = foods[catIndex].dishes[dishesIndex];
+    let dishInBasketIndex = basket.dishes.indexOf(foodDish);
+    basket.dishes[dishInBasketIndex].count ++;
+    renderBasket();
+    return;
+  }
   basket.dishes.push(foods[catIndex].dishes[dishesIndex]);
   renderBasket();
 }
 
+function increaseDishes(basketDishesIndex) {
+  basket.dishes[basketDishesIndex].count ++;
+  renderBasket();
+}
 
+function decreaseDishes(basketDishesIndex) {
+  if (basket.dishes[basketDishesIndex].count == 1) {
+    deleteDishes(basketDishesIndex);
+  }
+  basket.dishes[basketDishesIndex].count --;
+  renderBasket();
+}
+
+function deleteDishes(basketDishesIndex) {
+  basket.dishes.splice(basketDishesIndex, 1);
+  renderBasket();
+}
