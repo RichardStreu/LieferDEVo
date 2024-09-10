@@ -216,6 +216,7 @@ main {
   cursor: pointer;
   background-color: white;
   transition: all 0.15s ease-in-out;
+  user-select: none;
 }
 .dishes-add-button:hover {
   background-color: var(--color-midGray);

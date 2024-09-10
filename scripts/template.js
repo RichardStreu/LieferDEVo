@@ -54,3 +54,40 @@ function getBasketDishesTemplate(basketDishesIndex) {
               </div>
             </div>`;
 }
+
+function getBasketLowerPartTemplate() {
+
+  if (basket.isDeliverySelected == true) {
+    return `<div class="subtotal-amount">
+              <span>Zwischensumme</span><span id="subtotalAmount">${calculateSubTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
+            </div>
+            <div class="delivery-costs-or-discount">
+              <span>Lieferkosten</span
+              ><span id="deliveryCostsOrDiscount">${basket.deliveryCosts.toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
+            </div>
+            <div class="total-amount">
+              <span>Gesamt</span><span id="totalAmount">${calculateTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
+            </div>
+            <button id="payButton" class="pay-button">
+              <span>Bezahlen (${calculateTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })})</span>
+            </button>`;
+}
+
+else {
+  return `<div class="subtotal-amount">
+              <span>Zwischensumme</span><span id="subtotalAmount">${calculateSubTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
+            </div>
+            <div class="delivery-costs-or-discount">
+              <span>Rabatt</span
+              ><span id="deliveryCostsOrDiscount">${calculateDiscount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
+            </div>
+            <div class="total-amount">
+              <span>Gesamt</span><span id="totalAmount">${calculateTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
+            </div>
+            <button id="payButton" class="pay-button">
+              <span>Bezahlen (${calculateTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })})
+            </button>`;
+        }
+  }
+
+  

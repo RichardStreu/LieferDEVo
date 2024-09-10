@@ -47,8 +47,12 @@ function renderDishesContainer(catIndex) {
 }
 
 renderFoodContentContainer();
+renderBasketLowerPart();
 
 function renderBasketDishes() {
+  // if (basket.dishes.length == 0) {
+  //   return;
+  // }
   document.getElementById("basketBoxRenderContent").innerHTML = "";
   for (
     let basketDishesIndex = 0;
@@ -60,11 +64,42 @@ function renderBasketDishes() {
   }
 }
 
+function renderBasketLowerPart() {
+  document.getElementById("basketBoxLower").innerHTML = getBasketLowerPartTemplate();
+}
+
 function renderBasket() {
+  renderBasketLowerPart();
   renderBasketDishes();
 }
 
-// functions
+// functions to get total amounts of dishes in basket
+
+function calculateSubTotalAmount() {
+  let calculatedSubTotalAmount = 0;
+  basket.dishes.forEach((element) => {
+    calculatedSubTotalAmount += element.price * element.count;
+  })
+  return calculatedSubTotalAmount;
+}
+
+function calculateDiscount() {
+  return (calculateSubTotalAmount() / 100) * -(basket.discount);
+}
+
+function calculateTotalAmount() {
+  let calculatedTotalAmount = 0;
+  calculatedTotalAmount = calculateSubTotalAmount();
+  if (basket.isDeliverySelected == true) {
+    calculatedTotalAmount += basket.deliveryCosts;
+  }
+  else {
+    calculatedTotalAmount += calculateDiscount();
+  }
+  return calculatedTotalAmount;
+
+
+// functions de/increase dishes
 
 function addDishesToBasket(catIndex, dishesIndex) {
   if (basket.dishes.includes(foods[catIndex].dishes[dishesIndex])) {
@@ -86,6 +121,7 @@ function increaseDishes(basketDishesIndex) {
 function decreaseDishes(basketDishesIndex) {
   if (basket.dishes[basketDishesIndex].count == 1) {
     deleteDishes(basketDishesIndex);
+    return;
   }
   basket.dishes[basketDishesIndex].count --;
   renderBasket();
