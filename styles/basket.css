@@ -1,3 +1,7 @@
+.basket-wrapper {
+  padding: 0 16px;
+}
+
 .basket-container {
   width: 360px;
   background-color: white;
@@ -6,26 +10,93 @@
   flex-direction: column;
   position: relative;
 }
-.basketBox {
+.basket-box-fixed {
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin-bottom: 120px;
+}
+.basket-box {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 0 16px;
-  position: sticky;
-  top: 0;
-  min-height: calc(100vh - 120px);
+  width: 360px;
+  height: 100%;
   max-height: 100vh;
+  background-color: white;
+  
 }
 .basket-box-upper {
   background-color: white;
-  height: 100px;
 }
-.basket-box-middle {
-  background-color: yellow;
+.basket-box-upper h1 {
+  padding-top: 24px;
+  text-align: center;
+}
+.delivery-switcher {
+  height: 64px;
+  margin: 12px 0 8px 0;
+  padding: 8px 0;
+  background-color: var(--color-midGray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.basket-box-render-content {
   overflow-y: auto;
-  flex: 1;
 }
 .basket-box-lower {
-  background-color: red;
-  height: 100px;
+  background-color: white;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.basket-box-lower div {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+}
+.total-amount {
+  font-weight: 700;
+}
+.pay-button {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background-color: var(--color-payButtonOrange);
+  color: white;
+  width: 100%;
+  border-radius: 2rem;
+  padding: 12px 0;
+  margin-top: 13px;
+  border: none;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+.pay-button:hover {
+  background-color: var(--color-payButtonOrangeHovered);
+}
+
+.basketDishesBox {
+  padding: 16px 0 16px 0;
+  border-top: 1px solid var(--color-midGray);
+}
+.basket-dishes-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.basket-dishes-action-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.basket-dishes-counter-box {
+  padding-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.basket-delete-dishes-button {
+  border: none;
+  background-color: white;
+}
+.trashcan-icon {
+  height: 20px;
 }

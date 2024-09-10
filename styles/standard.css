@@ -1,5 +1,7 @@
 :root {
   --color-orange: rgb(255, 128, 0);
+  --color-payButtonOrange: rgb(240, 104, 20);
+  --color-payButtonOrangeHovered: rgb(241, 93, 0);
   --color-lightOrange: rgb(254, 229, 203);
   --color-lightGray: rgb(252, 252, 252);
   --color-midGray: rgb(235, 233, 232);
@@ -13,14 +15,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-size: 1rem;
   font-family: "montserrat";
-  color: var(--color-fontColor);
 }
 
 body {
   position: relative;
   min-height: 100vh;
+  font-size: 1rem;
+  color: var(--color-fontColor);
 }
 
 .wrapper {

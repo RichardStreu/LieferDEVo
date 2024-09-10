@@ -12,6 +12,18 @@ window.addEventListener("scroll", () => {
   }
 });
 
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 72) {
+    document
+      .getElementById("basketBox")
+      .classList.add("basket-box-fixed");
+  } else {
+    document
+      .getElementById("basketBox")
+      .classList.remove("basket-box-fixed");
+  }
+});
+
 // render functions
 
 function renderFoodContentContainer() {
@@ -40,3 +52,24 @@ function renderDishesContainer(catIndex) {
 }
 
 renderFoodContentContainer();
+
+function renderBasketDishes() {
+  document.getElementById("basketBoxRenderContent").innerHTML = "";
+  for (let basketDishesIndex = 0; basketDishesIndex < basket.dishes.length; basketDishesIndex++) {
+    let basketDish = getBasketDishesTemplate(basketDishesIndex);
+    document.getElementById("basketBoxRenderContent").innerHTML += basketDish;
+  }
+}
+
+function renderBasket() {
+  renderBasketDishes();
+}
+
+// functions
+
+function addDishesToBasket(catIndex, dishesIndex) {
+  basket.dishes.push(foods[catIndex].dishes[dishesIndex]);
+  renderBasket();
+}
+
+

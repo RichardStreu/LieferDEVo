@@ -126,7 +126,7 @@ main {
   height: 100px;
   display: flex;
   align-items: flex-end;
-  /* transition: all 0.15s ease-in-out; */
+  transition: all 0.05s ease-in-out;
   position: sticky;
   top: 0;
 }
