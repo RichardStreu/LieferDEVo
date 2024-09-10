@@ -47,12 +47,19 @@ function renderDishesContainer(catIndex) {
 }
 
 renderFoodContentContainer();
-renderBasketLowerPart();
+renderBasket();
+
+function makeBasketLowerPartVisible() {
+  if (basket.dishes.length == 0) {
+    document.getElementById("basketBoxLower").classList.add("d-none");
+    document.getElementById("emptyBasketDialog").classList.remove("d-none");
+  } else {
+    document.getElementById("basketBoxLower").classList.remove("d-none");
+    document.getElementById("emptyBasketDialog").classList.add("d-none");
+  }
+}
 
 function renderBasketDishes() {
-  // if (basket.dishes.length == 0) {
-  //   return;
-  // }
   document.getElementById("basketBoxRenderContent").innerHTML = "";
   for (
     let basketDishesIndex = 0;
@@ -65,10 +72,12 @@ function renderBasketDishes() {
 }
 
 function renderBasketLowerPart() {
-  document.getElementById("basketBoxLower").innerHTML = getBasketLowerPartTemplate();
+  document.getElementById("basketBoxLower").innerHTML =
+    getBasketLowerPartTemplate();
 }
 
 function renderBasket() {
+  makeBasketLowerPartVisible();
   renderBasketLowerPart();
   renderBasketDishes();
 }
@@ -79,12 +88,12 @@ function calculateSubTotalAmount() {
   let calculatedSubTotalAmount = 0;
   basket.dishes.forEach((element) => {
     calculatedSubTotalAmount += element.price * element.count;
-  })
+  });
   return calculatedSubTotalAmount;
 }
 
 function calculateDiscount() {
-  return (calculateSubTotalAmount() / 100) * -(basket.discount);
+  return (calculateSubTotalAmount() / 100) * -basket.discount;
 }
 
 function calculateTotalAmount() {
@@ -92,8 +101,7 @@ function calculateTotalAmount() {
   calculatedTotalAmount = calculateSubTotalAmount();
   if (basket.isDeliverySelected == true) {
     calculatedTotalAmount += basket.deliveryCosts;
-  }
-  else {
+  } else {
     calculatedTotalAmount += calculateDiscount();
   }
   return calculatedTotalAmount;
@@ -105,7 +113,7 @@ function addDishesToBasket(catIndex, dishesIndex) {
   if (basket.dishes.includes(foods[catIndex].dishes[dishesIndex])) {
     let foodDish = foods[catIndex].dishes[dishesIndex];
     let dishInBasketIndex = basket.dishes.indexOf(foodDish);
-    basket.dishes[dishInBasketIndex].count ++;
+    basket.dishes[dishInBasketIndex].count++;
     renderBasket();
     return;
   }
@@ -114,7 +122,7 @@ function addDishesToBasket(catIndex, dishesIndex) {
 }
 
 function increaseDishes(basketDishesIndex) {
-  basket.dishes[basketDishesIndex].count ++;
+  basket.dishes[basketDishesIndex].count++;
   renderBasket();
 }
 
@@ -123,11 +131,21 @@ function decreaseDishes(basketDishesIndex) {
     deleteDishes(basketDishesIndex);
     return;
   }
-  basket.dishes[basketDishesIndex].count --;
+  basket.dishes[basketDishesIndex].count--;
   renderBasket();
 }
 
 function deleteDishes(basketDishesIndex) {
   basket.dishes.splice(basketDishesIndex, 1);
   renderBasket();
+}
+
+// function to scroll in food content container
+
+function scrollToCategory(category) {
+
+  let foodContentContainer = document.getElementById(category);
+  let correctur = -98; 
+  let foodContentContainerPosition = foodContentContainer.getBoundingClientRect().top + window.scrollY + correctur;
+  window.scrollTo({ top: foodContentContainerPosition});
 }

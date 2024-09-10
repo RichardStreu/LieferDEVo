@@ -100,3 +100,27 @@
 .trashcan-icon {
   height: 20px;
 }
+
+/* empty basket dialog */
+
+.emptyBasketDialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+.emptyBasketIcon {
+  height: 40px;
+  width: auto;
+  margin-bottom: 1.5rem;
+}
+.empteBasketTextFillYourBasket {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.emptyBasketText {
+  text-align: center;
+  line-height: 1.5rem;
+}

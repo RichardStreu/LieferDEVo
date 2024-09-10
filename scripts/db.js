@@ -226,7 +226,7 @@ let foods = [
 
 let basket = {
   "deliveryCosts": 5.80,
-  "isDeliverySelected": false,
+  "isDeliverySelected": true,
   "discount": 5,
   "subTotalAmount": 0.00,
   "totalAmount": 0.00,

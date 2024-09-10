@@ -77,21 +77,11 @@
         <!-- FOOD HEADER NAVBAR -->
         <div id="foodHeaderNavbar" class="food-header-navbar">
           <div class="food-header-navbar-links-box food-wrapper">
-            <button href="#basketContainer" class="food-navbar-link">
-              Italienisch
-            </button>
-            <button href="#basketContainer" class="food-navbar-link">
-              Amerikanisch
-            </button>
-            <button href="#basketContainer" class="food-navbar-link">
-              Asiatisch
-            </button>
-            <button href="#basketContainer" class="food-navbar-link">
-              Beilagen
-            </button>
-            <button href="#basketContainer" class="food-navbar-link">
-              Deserts
-            </button>
+            <button onclick="scrollToCategory('Italienisch')" class="food-navbar-link">Italienisch</button>
+            <button onclick="scrollToCategory('Amerikanisch')" class="food-navbar-link">Amerikanisch</button>
+            <button onclick="scrollToCategory('Asiatisch')" class="food-navbar-link">Asiatisch</button>
+            <button onclick="scrollToCategory('Beilagen')" class="food-navbar-link">Beilagen</button>
+            <button onclick="scrollToCategory('Deserts')" class="food-navbar-link">Deserts</button>
           </div>
         </div>
         <!-- FOOD CONTENT -->
@@ -109,12 +99,26 @@
           <div
             id="basketBoxRenderContent"
             class="basket-box-render-content basket-wrapper"
-          >
-          </div>
+          ></div>
 
           <!-- basket lower part -->
           <div id="basketBoxLower" class="basket-box-lower basket-wrapper">
             <!-- content currently rendered -->
+          </div>
+          <!-- empty basket dialog -->
+          <div id="emptyBasketDialog" class="emptyBasketDialog basket-wrapper">
+            <img
+              class="emptyBasketIcon"
+              src="./assets/icon/icons8-basket-48.png"
+              alt=""
+            />
+            <div class="empteBasketTextFillYourBasket">
+              Fülle deinen Warenkorb
+            </div>
+            <div class="emptyBasketText">
+              Füge einige leckere Gerichte aus der Speisekarte hinzu und
+              bestelle dein Essen.
+            </div>
           </div>
         </div>
       </section>

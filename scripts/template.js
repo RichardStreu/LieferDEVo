@@ -1,5 +1,5 @@
 function getfoodContentContainerTemplate(catIndex, dishesContainer) {
-  return `<div class="food-content-container ${foods[catIndex].name}">
+  return `<div id="${foods[catIndex].name}" class="food-content-container ${foods[catIndex].name}">
             <img class="food-content-image" src="${foods[catIndex].src}" alt="Bild von ${foods[catIndex].name} Speise" />
             <p class="food-content-categorie">${foods[catIndex].name}</p>
             <div id="dishesContentRenderBox" class="food-content-render-box">
