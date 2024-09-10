@@ -97,7 +97,7 @@ function calculateTotalAmount() {
     calculatedTotalAmount += calculateDiscount();
   }
   return calculatedTotalAmount;
-
+}
 
 // functions de/increase dishes
 
