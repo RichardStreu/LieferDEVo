@@ -226,3 +226,36 @@
 #orderReadyDialog {
   padding: 0;
 }
+
+/* responsive basket */
+
+.responsive-basket {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  bottom: -94%;
+  bottom: 0;
+  background-color: aqua;
+  z-index: 6000;
+  transition: all 0.45s ease-in-out;
+}
+.resp-basket-head-title {
+  color: white;
+  background-color: var(--color-payButtonOrange);
+  height: 6%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+.resp-basket-head-title:hover {
+  background-color: var(--color-payButtonOrangeHovered);
+}
+.resp-basket-head-icon {
+  height: 32px;
+  width: auto;
+}

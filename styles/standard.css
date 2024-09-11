@@ -21,7 +21,7 @@
 }
 
 body {
-  /* position: relative; */
+  position: relative;
   min-height: 100vh;
   font-size: 1rem;
   color: var(--color-fontColor);
@@ -56,4 +56,8 @@ body {
 
 .transform-order-ready-dialog {
   transform: translateX(100%);
+}
+
+.transform-resp-basket {
+  transform: translateY(94%);
 }

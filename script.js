@@ -186,3 +186,9 @@ function completeOrder() {
     document.getElementById("orderReadyDialog").classList.add("transform-order-ready-dialog");
   }, 2500);
 }
+
+// function to show / unshow responsiv basket
+
+function showUnshowRespBasket() {
+  document.getElementById("responsiveBasket").classList.toggle("transform-resp-basket");
+}

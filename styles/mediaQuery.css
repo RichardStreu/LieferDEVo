@@ -2,6 +2,9 @@
   .basket-container {
     display: none;
   }
+  .responsive-basket {
+    display: block;
+  }
   main {
     display: block;
   }
