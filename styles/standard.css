@@ -24,6 +24,7 @@ body {
   min-height: 100vh;
   font-size: 1rem;
   color: var(--color-fontColor);
+  overflow-x: hidden;
 }
 
 .wrapper {
@@ -41,4 +42,17 @@ body {
 
 .d-none {
   display: none;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.transform-slider {
+  transform: translateX(100%);
+  box-shadow: -3px 1px 5px rgba(36, 46, 48, 0.2);
+}
+
+.transform-order-ready-dialog {
+  transform: translateX(100%);
 }

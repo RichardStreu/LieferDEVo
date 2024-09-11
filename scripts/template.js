@@ -68,7 +68,7 @@ function getBasketLowerPartTemplate() {
             <div class="total-amount">
               <span>Gesamt</span><span id="totalAmount">${calculateTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
             </div>
-            <button id="payButton" class="pay-button">
+            <button onclick="completeOrder()" id="payButton" class="pay-button">
               <span>Bezahlen (${calculateTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })})</span>
             </button>`;
 }
@@ -84,7 +84,7 @@ else {
             <div class="total-amount">
               <span>Gesamt</span><span id="totalAmount">${calculateTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
             </div>
-            <button id="payButton" class="pay-button">
+            <button onclick="completeOrder()" id="payButton" class="pay-button">
               <span>Bezahlen (${calculateTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })})
             </button>`;
         }

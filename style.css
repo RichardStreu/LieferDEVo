@@ -6,12 +6,10 @@ header {
   background-color: white;
   z-index: 5000;
   position: relative;
-}
-header .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  padding: 0 1rem;
 }
 .deverando-box {
   display: flex;

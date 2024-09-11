@@ -23,7 +23,6 @@
   height: 100%;
   max-height: 100vh;
   background-color: white;
-  
 }
 .basket-box-upper {
   background-color: white;
@@ -32,6 +31,8 @@
   padding-top: 24px;
   text-align: center;
 }
+
+/* delivery switcher */
 .delivery-switcher {
   height: 64px;
   margin: 12px 0 8px 0;
@@ -40,7 +41,90 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  border-radius: 2rem;
 }
+.button-delivery-background {
+  height: 60px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  width: calc(50% - 2px);
+  border-radius: 2rem;
+  position: absolute;
+  left: 2px;
+  transition: all 0.15s ease-in-out;
+  z-index: 500;
+}
+.button-takeaway-background {
+  height: 60px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  width: calc(50% - 2px);
+  border-radius: 2rem;
+  position: absolute;
+  right: 2px;
+  transition: all 0.15s ease-in-out;
+  z-index: 500;
+}
+.delivery-slider {
+  height: 60px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  width: calc(50% - 2px);
+  border-radius: 2rem;
+  background-color: white;
+  box-shadow: 3px 1px 5px rgba(36, 46, 48, 0.2);
+  position: absolute;
+  left: 2px;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+.deliveryIcons {
+  height: 18px;
+  width: auto;
+}
+.button-delivery {
+  cursor: pointer;
+  font-size: 0.85rem;
+  height: 60px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  width: calc(50% - 2px);
+  border-radius: 2rem;
+  position: absolute;
+  left: 2px;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease-in-out;
+  gap: 0.5rem;
+}
+.button-delivery:hover + .button-delivery-background {
+  background-color: rgb(224, 224, 224);
+}
+.button-takeaway {
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 0.85rem;
+  height: 60px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  width: calc(50% - 2px);
+  border-radius: 2rem;
+  position: absolute;
+  z-index: 2000;
+  right: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease-in-out;
+  gap: 0.5rem;
+}
+.button-takeaway:hover + .button-takeaway-background {
+  background-color: rgb(224, 224, 224);
+}
+
 .basket-box-render-content {
   overflow-y: auto;
 }
@@ -109,6 +193,7 @@
   justify-content: center;
   align-items: center;
   padding-top: 80px;
+  user-select: none;
 }
 .emptyBasketIcon {
   height: 40px;
@@ -123,4 +208,21 @@
 .emptyBasketText {
   text-align: center;
   line-height: 1.5rem;
+}
+
+/* order ready dialog */
+
+.order-ready-dialog {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 360px;
+  height: 100vh;
+  background-color: white;
+  z-index: 3000;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+}
+#orderReadyDialog {
+  padding: 0;
 }

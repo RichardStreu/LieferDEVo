@@ -149,3 +149,40 @@ function scrollToCategory(category) {
   let foodContentContainerPosition = foodContentContainer.getBoundingClientRect().top + window.scrollY + correctur;
   window.scrollTo({ top: foodContentContainerPosition});
 }
+
+// function for delivery slider
+
+function chooseDelivery(element) {
+  basket.isDeliverySelected = true;
+  document.getElementById("deliverySlider").classList.remove("transform-slider");
+  element.classList.add("font-bold");
+  document.getElementById("buttonTakeaway").classList.remove("font-bold");
+  document.getElementById("deliveryIcon").src = "./assets/icon/bike-orange.png";
+  document.getElementById("takeawayIcon").src = "./assets/icon/takeaway-black.png"; 
+  renderBasket();
+}
+
+function chooseTakeaway(element) {
+  basket.isDeliverySelected = false;
+  document.getElementById("deliverySlider").classList.add("transform-slider");
+  element.classList.add("font-bold");
+  document.getElementById("buttonDelivery").classList.remove("font-bold");
+  document.getElementById("deliveryIcon").src = "./assets/icon/bike-black.png";
+  document.getElementById("takeawayIcon").src = "./assets/icon/takeaway-orange.png";
+  renderBasket();
+}
+
+// function for order ready dialog
+
+function completeOrder() {
+  document.getElementById("orderReadyDialog").classList.remove("transform-order-ready-dialog");
+
+  setTimeout(() => {
+    basket.dishes = [];
+    renderBasket();
+  }, 500);
+
+  setTimeout(() => {
+    document.getElementById("orderReadyDialog").classList.add("transform-order-ready-dialog");
+  }, 2500);
+}
