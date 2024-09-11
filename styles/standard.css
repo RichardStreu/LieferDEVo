@@ -9,6 +9,7 @@
   --color-fontColor: rgb(36, 46, 48);
   --color-basketBlue: rgb(0, 105, 218);
   --color-yellow: rgb(246, 194, 67);
+  --color-logoBackground: rgb(245, 245, 245);
 }
 
 * {
@@ -20,7 +21,7 @@
 }
 
 body {
-  position: relative;
+  /* position: relative; */
   min-height: 100vh;
   font-size: 1rem;
   color: var(--color-fontColor);

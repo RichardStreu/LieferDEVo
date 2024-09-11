@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./styles/fonts.css" />
     <link rel="stylesheet" href="./styles/standard.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/mediaQuery.css">
     <link rel="icon" href="./assets/icon/favicon-32x32.png" />
     <title>DEVerando</title>
   </head>
@@ -49,7 +50,13 @@
             src="./assets/img/nyc-bites-wallpaper.jpg"
             alt=""
           />
+          <div class="logo-container food-wrapper">
+            <div class="logo-box">
+              <img class="nyc-bites-logo" src="./assets/icon/nyc-bites-logo.png" alt="">
+            </div>
+          </div>
         </div>
+
         <!-- FOOD HEADER INFO -->
         <div class="food-content-background">
           <div class="food-header-info food-wrapper">
@@ -174,8 +181,11 @@
             </div>
           </div>
           <!-- order ready dialog -->
-          <div id="orderReadyDialog" class="order-ready-dialog transform-order-ready-dialog">
-            <div class="emptyBasketDialog basket-wrapper ">
+          <div
+            id="orderReadyDialog"
+            class="order-ready-dialog transform-order-ready-dialog"
+          >
+            <div class="emptyBasketDialog basket-wrapper">
               <img
                 class="emptyBasketIcon"
                 src="./assets/icon/icons8-food-bar-50.png"

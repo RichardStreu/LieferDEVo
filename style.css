@@ -81,6 +81,29 @@ main {
 }
 .wallpaper-box {
   height: 480px;
+  position: relative;
+}
+.logo-container {
+  position: absolute;
+  height: 480px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.logo-box {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-logoBackground);
+  bottom: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nyc-bites-logo {
+  width: 80%;
+  height: auto;
 }
 .wallpaper {
   height: 100%;
@@ -138,6 +161,7 @@ main {
   justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
+  overflow-x: auto;
 }
 .food-navbar-link {
   padding: 0.5rem 1rem;
@@ -228,7 +252,7 @@ main {
 .dishes-text-box {
   padding-right: 1rem;
   padding-top: 0.5rem;
-  height: 120px;
+  min-height: 120px;
 }
 .dishes-description {
   margin-bottom: 0.5rem;

@@ -1,0 +1,46 @@
+@media screen and (max-width: 961px) {
+  .basket-container {
+    display: none;
+  }
+  main {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 603px) {
+  .menu {
+    display: none;
+  }
+  .header-navbar {
+    gap: 1rem;
+  }
+  .food-header-navbar {
+    height: 82px;
+  }
+  .food-header-navbar-links-box {
+    justify-content: flex-start;
+    scrollbar-width: thin;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  header {
+    padding: 0 0.5rem;
+  }
+  .food-wrapper {
+    padding: 0 0.5rem;
+  }
+  .discount-description-box {
+    width: 100%;
+    margin-bottom: 1.25rem;
+  }
+  .dishes-container-upper-part {
+    padding-bottom: 1rem;
+  }
+  .dishes-container-lower-part {
+    padding-right: 0;
+  }
+  .dishes-text-box {
+    padding-top: 0;
+  }
+}
