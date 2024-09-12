@@ -8,14 +8,97 @@
     <link rel="stylesheet" href="./styles/fonts.css" />
     <link rel="stylesheet" href="./styles/standard.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="./styles/mediaQuery.css">
+    <link rel="stylesheet" href="./styles/mediaQuery.css" />
     <link rel="icon" href="./assets/icon/favicon-32x32.png" />
     <title>DEVerando</title>
   </head>
   <body>
     <!-- responsive basket -->
     <div id="responsiveBasket" class="responsive-basket transform-resp-basket">
-      <div onclick="showUnshowRespBasket()" class="resp-basket-head-title"><img class="resp-basket-head-icon" src="./assets/icon/basket-white-48.png" alt=""></div>
+      <div onclick="showUnshowRespBasket()" class="resp-basket-head-title">
+        <img
+          class="resp-basket-head-icon"
+          src="./assets/icon/basket-white-48.png"
+          alt=""
+        />
+      </div>
+      <div class="responsive-basket-wrapper">
+        <!-- responsive basket delivery switcher -->
+          <div class="delivery-switcher">
+            <div id="respDeliverySlider" class="delivery-slider"></div>
+            <div
+              onclick="chooseDelivery(this)"
+              id="respButtonDelivery"
+              class="button-delivery font-bold"
+            >
+              <img
+                id="respDeliveryIcon"
+                class="deliveryIcons"
+                src="./assets/icon/bike-orange.png"
+                alt=""
+              /><span>Lieferung</span>
+            </div>
+            <div class="button-delivery-background"></div>
+            <div
+              onclick="chooseTakeaway(this)"
+              id="respButtonTakeaway"
+              class="button-takeaway"
+            >
+              <img
+                id="respTakeawayIcon"
+                class="deliveryIcons"
+                src="./assets/icon/takeaway-black.png"
+                alt=""
+              /><span>Abholung</span>
+            </div>
+            <div class="button-takeaway-background"></div>
+          </div>
+        <!-- responsive basket render content -->
+        <div
+          id="respBasketBoxRenderContent"
+          class="resp-basket-render-content basket-box-render-content"
+        ></div>
+        
+        <div
+          id="respBasketBoxLower"
+          class="resp-basket-lower basket-box-lower"
+        ></div>
+        <!-- responsive empty basket dialog -->
+        <div
+          id="respEmptyBasketDialog"
+          class="emptyBasketDialog basket-wrapper"
+        >
+          <img
+            class="emptyBasketIcon"
+            src="./assets/icon/icons8-basket-48.png"
+            alt=""
+          />
+          <div class="empteBasketTextFillYourBasket">
+            Fülle deinen Warenkorb
+          </div>
+          <div class="emptyBasketText">
+            Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle
+            dein Essen.
+          </div>
+        </div>
+      </div>
+      <!-- responsive order ready dialog -->
+      <div
+        id="respOrderReadyDialog"
+        class="order-ready-dialog transform-order-ready-dialog basket-wrapper width-100"
+      >
+        <div class="emptyBasketDialog">
+          <img
+            class="emptyBasketIcon"
+            src="./assets/icon/icons8-food-bar-50.png"
+            alt=""
+          />
+          <div class="empteBasketTextFillYourBasket">Geschafft</div>
+          <div class="emptyBasketText">
+            Deine Bestellung wurde entgegen genommen
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- HEADER -->
@@ -57,7 +140,11 @@
           />
           <div class="logo-container food-wrapper">
             <div class="logo-box">
-              <img class="nyc-bites-logo" src="./assets/icon/nyc-bites-logo.png" alt="">
+              <img
+                class="nyc-bites-logo"
+                src="./assets/icon/nyc-bites-logo.png"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -210,8 +297,6 @@
     <footer>
       <div class="wrapper"></div>
     </footer>
-
-    
   </body>
   <script src="./scripts/db.js"></script>
   <script src="./scripts/template.js"></script>

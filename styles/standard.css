@@ -18,6 +18,7 @@
   padding: 0;
   font-family: "montserrat";
   scroll-behavior: smooth;
+  user-select: none;
 }
 
 body {
@@ -47,6 +48,9 @@ body {
 
 .font-bold {
   font-weight: 700;
+}
+.width-100 {
+  width: 100%;
 }
 
 .transform-slider {

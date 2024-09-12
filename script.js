@@ -51,9 +51,13 @@ renderBasket();
 
 function makeBasketLowerPartVisible() {
   if (basket.dishes.length == 0) {
+    document.getElementById("respBasketBoxLower").classList.add("d-none");
+    document.getElementById("respEmptyBasketDialog").classList.remove("d-none");
     document.getElementById("basketBoxLower").classList.add("d-none");
     document.getElementById("emptyBasketDialog").classList.remove("d-none");
   } else {
+    document.getElementById("respBasketBoxLower").classList.remove("d-none");
+    document.getElementById("respEmptyBasketDialog").classList.add("d-none");
     document.getElementById("basketBoxLower").classList.remove("d-none");
     document.getElementById("emptyBasketDialog").classList.add("d-none");
   }
@@ -61,6 +65,7 @@ function makeBasketLowerPartVisible() {
 
 function renderBasketDishes() {
   document.getElementById("basketBoxRenderContent").innerHTML = "";
+  document.getElementById("respBasketBoxRenderContent").innerHTML = "";
   for (
     let basketDishesIndex = 0;
     basketDishesIndex < basket.dishes.length;
@@ -68,11 +73,14 @@ function renderBasketDishes() {
   ) {
     let basketDish = getBasketDishesTemplate(basketDishesIndex);
     document.getElementById("basketBoxRenderContent").innerHTML += basketDish;
+    document.getElementById("respBasketBoxRenderContent").innerHTML += basketDish;
   }
 }
 
 function renderBasketLowerPart() {
   document.getElementById("basketBoxLower").innerHTML =
+    getBasketLowerPartTemplate();
+    document.getElementById("respBasketBoxLower").innerHTML = 
     getBasketLowerPartTemplate();
 }
 
@@ -154,16 +162,26 @@ function scrollToCategory(category) {
 
 function chooseDelivery(element) {
   basket.isDeliverySelected = true;
+  document.getElementById("respDeliverySlider").classList.remove("transform-slider");
+  element.classList.add("font-bold");
+  document.getElementById("respButtonTakeaway").classList.remove("font-bold");
+  document.getElementById("respDeliveryIcon").src = "./assets/icon/bike-orange.png";
+  document.getElementById("respTakeawayIcon").src = "./assets/icon/takeaway-black.png";
   document.getElementById("deliverySlider").classList.remove("transform-slider");
   element.classList.add("font-bold");
   document.getElementById("buttonTakeaway").classList.remove("font-bold");
   document.getElementById("deliveryIcon").src = "./assets/icon/bike-orange.png";
-  document.getElementById("takeawayIcon").src = "./assets/icon/takeaway-black.png"; 
+  document.getElementById("takeawayIcon").src = "./assets/icon/takeaway-black.png";  
   renderBasket();
 }
 
 function chooseTakeaway(element) {
   basket.isDeliverySelected = false;
+  document.getElementById("respDeliverySlider").classList.add("transform-slider");
+  element.classList.add("font-bold");
+  document.getElementById("respButtonDelivery").classList.remove("font-bold");
+  document.getElementById("respDeliveryIcon").src = "./assets/icon/bike-black.png";
+  document.getElementById("respTakeawayIcon").src = "./assets/icon/takeaway-orange.png";
   document.getElementById("deliverySlider").classList.add("transform-slider");
   element.classList.add("font-bold");
   document.getElementById("buttonDelivery").classList.remove("font-bold");
@@ -176,14 +194,18 @@ function chooseTakeaway(element) {
 
 function completeOrder() {
   document.getElementById("orderReadyDialog").classList.remove("transform-order-ready-dialog");
+  document.getElementById("respOrderReadyDialog").classList.remove("transform-order-ready-dialog");
 
   setTimeout(() => {
     basket.dishes = [];
     renderBasket();
+    
   }, 500);
 
   setTimeout(() => {
     document.getElementById("orderReadyDialog").classList.add("transform-order-ready-dialog");
+    document.getElementById("respOrderReadyDialog").classList.add("transform-order-ready-dialog");
+    showUnshowRespBasket();
   }, 2500);
 }
 

@@ -222,6 +222,7 @@
   z-index: 3000;
   transition: all 0.3s ease-in-out;
   display: flex;
+  justify-content: center;
 }
 #orderReadyDialog {
   padding: 0;
@@ -236,7 +237,7 @@
   width: 100%;
   bottom: -94%;
   bottom: 0;
-  background-color: aqua;
+  background-color: white;
   z-index: 6000;
   transition: all 0.45s ease-in-out;
 }
@@ -251,6 +252,7 @@
   align-items: center;
   cursor: pointer;
   transition: all 0.15s ease-in-out;
+  user-select: none;
 }
 .resp-basket-head-title:hover {
   background-color: var(--color-payButtonOrangeHovered);
@@ -258,4 +260,12 @@
 .resp-basket-head-icon {
   height: 32px;
   width: auto;
+}
+
+.responsive-basket-wrapper {
+  padding-left: 8px;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 94%;
 }
