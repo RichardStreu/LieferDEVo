@@ -73,14 +73,15 @@ function renderBasketDishes() {
   ) {
     let basketDish = getBasketDishesTemplate(basketDishesIndex);
     document.getElementById("basketBoxRenderContent").innerHTML += basketDish;
-    document.getElementById("respBasketBoxRenderContent").innerHTML += basketDish;
+    document.getElementById("respBasketBoxRenderContent").innerHTML +=
+      basketDish;
   }
 }
 
 function renderBasketLowerPart() {
   document.getElementById("basketBoxLower").innerHTML =
     getBasketLowerPartTemplate();
-    document.getElementById("respBasketBoxLower").innerHTML = 
+  document.getElementById("respBasketBoxLower").innerHTML =
     getBasketLowerPartTemplate();
 }
 
@@ -151,60 +152,81 @@ function deleteDishes(basketDishesIndex) {
 // function to scroll in food content container
 
 function scrollToCategory(category) {
-
   let foodContentContainer = document.getElementById(category);
-  let correctur = -98; 
-  let foodContentContainerPosition = foodContentContainer.getBoundingClientRect().top + window.scrollY + correctur;
-  window.scrollTo({ top: foodContentContainerPosition});
+  let correctur = -98;
+  let foodContentContainerPosition =
+    foodContentContainer.getBoundingClientRect().top +
+    window.scrollY +
+    correctur;
+  window.scrollTo({ top: foodContentContainerPosition });
 }
 
 // function for delivery slider
 
 function chooseDelivery(element) {
   basket.isDeliverySelected = true;
-  document.getElementById("respDeliverySlider").classList.remove("transform-slider");
+  document
+    .getElementById("respDeliverySlider")
+    .classList.remove("transform-slider");
   element.classList.add("font-bold");
   document.getElementById("respButtonTakeaway").classList.remove("font-bold");
-  document.getElementById("respDeliveryIcon").src = "./assets/icon/bike-orange.png";
-  document.getElementById("respTakeawayIcon").src = "./assets/icon/takeaway-black.png";
-  document.getElementById("deliverySlider").classList.remove("transform-slider");
+  document.getElementById("respDeliveryIcon").src =
+    "./assets/icon/bike-orange.png";
+  document.getElementById("respTakeawayIcon").src =
+    "./assets/icon/takeaway-black.png";
+  document
+    .getElementById("deliverySlider")
+    .classList.remove("transform-slider");
   element.classList.add("font-bold");
   document.getElementById("buttonTakeaway").classList.remove("font-bold");
   document.getElementById("deliveryIcon").src = "./assets/icon/bike-orange.png";
-  document.getElementById("takeawayIcon").src = "./assets/icon/takeaway-black.png";  
+  document.getElementById("takeawayIcon").src =
+    "./assets/icon/takeaway-black.png";
   renderBasket();
 }
 
 function chooseTakeaway(element) {
   basket.isDeliverySelected = false;
-  document.getElementById("respDeliverySlider").classList.add("transform-slider");
+  document
+    .getElementById("respDeliverySlider")
+    .classList.add("transform-slider");
   element.classList.add("font-bold");
   document.getElementById("respButtonDelivery").classList.remove("font-bold");
-  document.getElementById("respDeliveryIcon").src = "./assets/icon/bike-black.png";
-  document.getElementById("respTakeawayIcon").src = "./assets/icon/takeaway-orange.png";
+  document.getElementById("respDeliveryIcon").src =
+    "./assets/icon/bike-black.png";
+  document.getElementById("respTakeawayIcon").src =
+    "./assets/icon/takeaway-orange.png";
   document.getElementById("deliverySlider").classList.add("transform-slider");
   element.classList.add("font-bold");
   document.getElementById("buttonDelivery").classList.remove("font-bold");
   document.getElementById("deliveryIcon").src = "./assets/icon/bike-black.png";
-  document.getElementById("takeawayIcon").src = "./assets/icon/takeaway-orange.png";
+  document.getElementById("takeawayIcon").src =
+    "./assets/icon/takeaway-orange.png";
   renderBasket();
 }
 
 // function for order ready dialog
 
 function completeOrder() {
-  document.getElementById("orderReadyDialog").classList.remove("transform-order-ready-dialog");
-  document.getElementById("respOrderReadyDialog").classList.remove("transform-order-ready-dialog");
+  document
+    .getElementById("orderReadyDialog")
+    .classList.remove("transform-order-ready-dialog");
+  document
+    .getElementById("respOrderReadyDialog")
+    .classList.remove("transform-order-ready-dialog");
 
   setTimeout(() => {
     basket.dishes = [];
     renderBasket();
-    
   }, 500);
 
   setTimeout(() => {
-    document.getElementById("orderReadyDialog").classList.add("transform-order-ready-dialog");
-    document.getElementById("respOrderReadyDialog").classList.add("transform-order-ready-dialog");
+    document
+      .getElementById("orderReadyDialog")
+      .classList.add("transform-order-ready-dialog");
+    document
+      .getElementById("respOrderReadyDialog")
+      .classList.add("transform-order-ready-dialog");
     showUnshowRespBasket();
   }, 2500);
 }
@@ -212,5 +234,27 @@ function completeOrder() {
 // function to show / unshow responsiv basket
 
 function showUnshowRespBasket() {
-  document.getElementById("responsiveBasket").classList.toggle("transform-resp-basket");
+  document
+    .getElementById("responsiveBasket")
+    .classList.toggle("transform-resp-basket");
 }
+
+// function to 
+
+let footerHeight = document
+  .getElementById("footer")
+  .getBoundingClientRect().height;
+let documentHeight = document.documentElement.scrollHeight;
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY + window.innerHeight > documentHeight - footerHeight) {
+    console.log("willkommen am footer");
+    let footerViewable =
+      window.scrollY + window.innerHeight - (documentHeight - footerHeight);
+    console.log(footerViewable);
+
+    document.getElementById("basketBox").style.maxHeight = `${
+      (window.innerHeight - footerViewable)
+    }px`;
+  }
+});
