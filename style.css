@@ -273,6 +273,9 @@ main {
 footer {
   height: 120px;
   background-color: var(--color-footerGray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .counter-button {

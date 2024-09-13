@@ -197,6 +197,7 @@ function hideCounterFromAddButton(basketDishesIndex) {
         let image = `<img src="./assets/icon/icons8-plus-24.png" alt=""></img>`;
         buttonButton.innerHTML = image;
         buttonButton.classList.remove("counter-button");
+        foods[indexCat].dishes[indexFoodDish].count = 1;
       }
     }
   }
