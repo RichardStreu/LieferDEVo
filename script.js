@@ -239,22 +239,38 @@ function showUnshowRespBasket() {
     .classList.toggle("transform-resp-basket");
 }
 
-// function to 
-
-let footerHeight = document
-  .getElementById("footer")
-  .getBoundingClientRect().height;
-let documentHeight = document.documentElement.scrollHeight;
+// function to limt basket max-height by footer
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY + window.innerHeight > documentHeight - footerHeight) {
-    console.log("willkommen am footer");
-    let footerViewable =
-      window.scrollY + window.innerHeight - (documentHeight - footerHeight);
-    console.log(footerViewable);
+  const documentHeight = document.documentElement.scrollHeight;
+  const headerHeight = document
+    .getElementById("header")
+    .getBoundingClientRect().height;
+  const footerHeight = document
+    .getElementById("footer")
+    .getBoundingClientRect().height;
 
+  if (window.scrollY < headerHeight) {
+    let headerViewable = Math.floor(headerHeight - scrollY);
     document.getElementById("basketBox").style.maxHeight = `${
-      (window.innerHeight - footerViewable)
+      window.innerHeight - headerViewable
+    }px`;
+  } else if (
+    window.scrollY > headerHeight &&
+    window.scrollY + window.innerHeight < documentHeight - footerHeight
+  ) {
+    document.getElementById(
+      "basketBox"
+    ).style.maxHeight = `${window.innerHeight}px`;
+  } else if (
+    window.scrollY + window.innerHeight >
+    documentHeight - footerHeight
+  ) {
+    let footerViewable = Math.floor(
+      window.scrollY + window.innerHeight - (documentHeight - footerHeight)
+    );
+    document.getElementById("basketBox").style.maxHeight = `${
+      window.innerHeight - footerViewable
     }px`;
   }
 });
