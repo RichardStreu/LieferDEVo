@@ -41,6 +41,7 @@ function renderDishesContainer(catIndex) {
     dishesIndex < foods[catIndex].dishes.length;
     dishesIndex++
   ) {
+    foods[catIndex].dishes[dishesIndex].count = 1;
     dishesContainer += getDishesContainerTemplate(catIndex, dishesIndex);
   }
   return dishesContainer;
@@ -282,6 +283,7 @@ function completeOrder() {
       .getElementById("respOrderReadyDialog")
       .classList.add("transform-order-ready-dialog");
     showUnshowRespBasket();
+    
     renderFoodContentContainer();
   }, 2500);
 }
