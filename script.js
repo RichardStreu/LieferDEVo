@@ -123,6 +123,7 @@ function addDishesToBasket(catIndex, dishesIndex) {
     let foodDish = foods[catIndex].dishes[dishesIndex];
     let dishInBasketIndex = basket.dishes.indexOf(foodDish);
     basket.dishes[dishInBasketIndex].count++;
+    showCounterInAddButton();
     renderBasket();
     return;
   }
@@ -133,7 +134,7 @@ function addDishesToBasket(catIndex, dishesIndex) {
 
 function increaseDishes(basketDishesIndex) {
   basket.dishes[basketDishesIndex].count++;
-  showCounterInAddButton()
+  showCounterInAddButton();
   renderBasket();
 }
 
@@ -143,11 +144,12 @@ function decreaseDishes(basketDishesIndex) {
     return;
   }
   basket.dishes[basketDishesIndex].count--;
-  showCounterInAddButton()
+  showCounterInAddButton();
   renderBasket();
 }
 
 function deleteDishes(basketDishesIndex) {
+  hideCounterFromAddButton(basketDishesIndex);
   basket.dishes.splice(basketDishesIndex, 1);
   renderBasket();
 }
@@ -155,7 +157,6 @@ function deleteDishes(basketDishesIndex) {
 // function to show counter in add Button
 
 function showCounterInAddButton() {
-
   basket.dishes.forEach((element) => {
     for (let indexCat = 0; indexCat < foods.length; indexCat++) {
       for (
@@ -164,29 +165,42 @@ function showCounterInAddButton() {
         indexFoodDish++
       ) {
         if (element.dataKey == foods[indexCat].dishes[indexFoodDish].dataKey) {
-          let dishDataKey = foods[indexCat].dishes[indexFoodDish].dataKey
-          let dishAddBtn = document.querySelector(`[data-key="${dishDataKey}"]`);
+          let dishDataKey = foods[indexCat].dishes[indexFoodDish].dataKey;
+          let foodContainerRef = document.querySelector(".food-container");
+          let dishAddBtn = foodContainerRef.querySelector(
+            `[data-key="${dishDataKey}"]`
+          );
           let buttonButton = dishAddBtn.querySelector("button");
-          console.log(buttonButton);
-          
-          buttonButton.innerHTML = "";
-          let counter = `${element.count}`;
-
-          setTimeout(() => {
-            buttonButton.innerHTML = counter;
-          console.log(buttonButton);
-          }, 20);
-          
-          
-          
-          
+          buttonButton.innerHTML = `${element.count}`;
+          buttonButton.classList.add("counter-button");
         }
       }
     }
   });
 }
 
-let element = 
+function hideCounterFromAddButton(basketDishesIndex) {
+  let basketDishKey = basket.dishes[basketDishesIndex].dataKey;
+  for (let indexCat = 0; indexCat < foods.length; indexCat++) {
+    for (
+      let indexFoodDish = 0;
+      indexFoodDish < foods[indexCat].dishes.length;
+      indexFoodDish++
+    ) {
+      if (basketDishKey == foods[indexCat].dishes[indexFoodDish].dataKey) {
+        let dishDataKey = foods[indexCat].dishes[indexFoodDish].dataKey;
+        let foodContainerRef = document.querySelector(".food-container");
+        let dishAddBtn = foodContainerRef.querySelector(
+          `[data-key="${dishDataKey}"]`
+        );
+        let buttonButton = dishAddBtn.querySelector("button");
+        let image = `<img src="./assets/icon/icons8-plus-24.png" alt=""></img>`;
+        buttonButton.innerHTML = image;
+        buttonButton.classList.remove("counter-button");
+      }
+    }
+  }
+}
 
 // function to scroll in food content container
 
@@ -267,6 +281,7 @@ function completeOrder() {
       .getElementById("respOrderReadyDialog")
       .classList.add("transform-order-ready-dialog");
     showUnshowRespBasket();
+    renderFoodContentContainer();
   }, 2500);
 }
 

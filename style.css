@@ -274,3 +274,14 @@ footer {
   height: 120px;
   background-color: var(--color-footerGray);
 }
+
+.counter-button {
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.counter-button:hover {
+  background-color: black;
+  color: white;
+}
