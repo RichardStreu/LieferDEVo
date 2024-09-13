@@ -9,11 +9,17 @@ function getfoodContentContainerTemplate(catIndex, dishesContainer) {
 }
 
 function getDishesContainerTemplate(catIndex, dishesIndex) {
-  return `<div class="dishes-Container">
+  return `<div data-key="${
+    foods[catIndex].dishes[dishesIndex].dataKey
+  }" class="dishes-Container">
             <div class="dishes-container-upper-part">
-              <div class="dishes-name">${foods[catIndex].dishes[dishesIndex].name}</div>
+              <div class="dishes-name">${
+                foods[catIndex].dishes[dishesIndex].name
+              }</div>
               <div class="dishes-add-button-box">
-                <button onclick="addDishesToBasket(${catIndex}, ${dishesIndex})" class="dishes-add-button" id="dishesAddButton${foods[catIndex].name}${dishesIndex}">
+                <button onclick="addDishesToBasket(${catIndex}, ${dishesIndex})" class="dishes-add-button" id="dishesAddButton${
+    foods[catIndex].name
+  }${dishesIndex}">
                   <img src="./assets/icon/icons8-plus-24.png" alt="">
                 </button>
               </div>
@@ -24,17 +30,26 @@ function getDishesContainerTemplate(catIndex, dishesIndex) {
                   ${foods[catIndex].dishes[dishesIndex].description}
                 </div>
                 <div id="dishesSinglePrice" class="dishes-single-price">
-                  ${foods[catIndex].dishes[dishesIndex].price.replace(".", ",")} €
+                  ${foods[catIndex].dishes[dishesIndex].price.replace(
+                    ".",
+                    ","
+                  )} €
                 </div>
               </div>
-              <img class="dishes-image" src="${foods[catIndex].dishes[dishesIndex].imgSource}" alt="">
+              <img class="dishes-image" src="${
+                foods[catIndex].dishes[dishesIndex].imgSource
+              }" alt="">
             </div>
           </div>`;
 }
 
 function getBasketDishesTemplate(basketDishesIndex) {
-  return `<div class="basketDishesBox">
-              <div class="basket-dishes-title">${basket.dishes[basketDishesIndex].name}</div>
+  return `<div data-key="${
+    basket.dishes[basketDishesIndex].dataKey
+  }" class="basketDishesBox">
+              <div class="basket-dishes-title">${
+                basket.dishes[basketDishesIndex].name
+              }</div>
               <div class="basket-dishes-action-container">
                 <div class="basket-dishes-counter-box">
                   <button onclick="decreaseDishes(${basketDishesIndex})" class="dishes-add-button">
@@ -48,7 +63,13 @@ function getBasketDishesTemplate(basketDishesIndex) {
                   </button>
                 </div>
                 <div class="basket-dishes-amount-box">
-                  ${(basket.dishes[basketDishesIndex].price * basket.dishes[basketDishesIndex].count).toLocaleString("de-DE", { style: "currency", currency: "EUR" })}
+                  ${(
+                    basket.dishes[basketDishesIndex].price *
+                    basket.dishes[basketDishesIndex].count
+                  ).toLocaleString("de-DE", {
+                    style: "currency",
+                    currency: "EUR",
+                  })}
                 </div>
                 <button onclick="deleteDishes(${basketDishesIndex})" class="basket-delete-dishes-button dishes-add-button" id="basketDelteDishesButton"><img class="trashcan-icon" src="./assets/icon/icons8-delete-50.png" alt=""></button>
               </div>
@@ -56,38 +77,57 @@ function getBasketDishesTemplate(basketDishesIndex) {
 }
 
 function getBasketLowerPartTemplate() {
-
   if (basket.isDeliverySelected == true) {
     return `<div class="subtotal-amount">
-              <span>Zwischensumme</span><span id="subtotalAmount">${calculateSubTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
+              <span>Zwischensumme</span><span id="subtotalAmount">${calculateSubTotalAmount().toLocaleString(
+                "de-DE",
+                { style: "currency", currency: "EUR" }
+              )}</span>
             </div>
             <div class="delivery-costs-or-discount">
               <span>Lieferkosten</span
-              ><span id="deliveryCostsOrDiscount">${basket.deliveryCosts.toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
+              ><span id="deliveryCostsOrDiscount">${basket.deliveryCosts.toLocaleString(
+                "de-DE",
+                { style: "currency", currency: "EUR" }
+              )}</span>
             </div>
             <div class="total-amount">
-              <span>Gesamt</span><span id="totalAmount">${calculateTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
+              <span>Gesamt</span><span id="totalAmount">${calculateTotalAmount().toLocaleString(
+                "de-DE",
+                { style: "currency", currency: "EUR" }
+              )}</span>
             </div>
             <button onclick="completeOrder()" id="payButton" class="pay-button">
-              <span>Bezahlen (${calculateTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })})</span>
+              <span>Bezahlen (${calculateTotalAmount().toLocaleString("de-DE", {
+                style: "currency",
+                currency: "EUR",
+              })})</span>
             </button>`;
-}
-
-else {
-  return `<div class="subtotal-amount">
-              <span>Zwischensumme</span><span id="subtotalAmount">${calculateSubTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
+  } else {
+    return `<div class="subtotal-amount">
+              <span>Zwischensumme</span><span id="subtotalAmount">${calculateSubTotalAmount().toLocaleString(
+                "de-DE",
+                { style: "currency", currency: "EUR" }
+              )}</span>
             </div>
             <div class="delivery-costs-or-discount">
               <span>Rabatt</span
-              ><span id="deliveryCostsOrDiscount">${calculateDiscount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
+              ><span id="deliveryCostsOrDiscount">${calculateDiscount().toLocaleString(
+                "de-DE",
+                { style: "currency", currency: "EUR" }
+              )}</span>
             </div>
             <div class="total-amount">
-              <span>Gesamt</span><span id="totalAmount">${calculateTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</span>
+              <span>Gesamt</span><span id="totalAmount">${calculateTotalAmount().toLocaleString(
+                "de-DE",
+                { style: "currency", currency: "EUR" }
+              )}</span>
             </div>
             <button onclick="completeOrder()" id="payButton" class="pay-button">
-              <span>Bezahlen (${calculateTotalAmount().toLocaleString("de-DE", { style: "currency", currency: "EUR" })})
+              <span>Bezahlen (${calculateTotalAmount().toLocaleString("de-DE", {
+                style: "currency",
+                currency: "EUR",
+              })})
             </button>`;
-        }
   }
-
-  
+}

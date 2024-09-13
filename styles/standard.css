@@ -65,3 +65,7 @@ body {
 .transform-resp-basket {
   transform: translateY(94%);
 }
+
+.background-black {
+  background-color: black;
+}

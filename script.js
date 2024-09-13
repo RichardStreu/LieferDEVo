@@ -149,6 +149,10 @@ function deleteDishes(basketDishesIndex) {
   renderBasket();
 }
 
+// function to show counter in add Button
+
+let element = document.querySelector('[data-key="123"]');
+
 // function to scroll in food content container
 
 function scrollToCategory(category) {
@@ -239,7 +243,7 @@ function showUnshowRespBasket() {
     .classList.toggle("transform-resp-basket");
 }
 
-// function to limt basket max-height by footer
+// function to limt basket max-height by header or footer
 
 window.addEventListener("scroll", () => {
   const documentHeight = document.documentElement.scrollHeight;
