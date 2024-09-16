@@ -2,13 +2,9 @@
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 792) {
-    document
-      .getElementById("foodHeaderNavbar")
-      .classList.add("food-header-navbar-sticky");
+    document.getElementById("foodHeaderNavbar").classList.add("food-header-navbar-sticky");
   } else {
-    document
-      .getElementById("foodHeaderNavbar")
-      .classList.remove("food-header-navbar-sticky");
+    document.getElementById("foodHeaderNavbar").classList.remove("food-header-navbar-sticky");
   }
 });
 
@@ -27,20 +23,13 @@ function renderFoodContentContainer() {
   foodContentRef.innerHTML = "";
   for (let catIndex = 0; catIndex < foods.length; catIndex++) {
     let dishesContainer = renderDishesContainer(catIndex);
-    foodContentRef.innerHTML += getfoodContentContainerTemplate(
-      catIndex,
-      dishesContainer
-    );
+    foodContentRef.innerHTML += getfoodContentContainerTemplate(catIndex, dishesContainer);
   }
 }
 
 function renderDishesContainer(catIndex) {
   let dishesContainer = "";
-  for (
-    let dishesIndex = 0;
-    dishesIndex < foods[catIndex].dishes.length;
-    dishesIndex++
-  ) {
+  for (let dishesIndex = 0; dishesIndex < foods[catIndex].dishes.length; dishesIndex++) {
     foods[catIndex].dishes[dishesIndex].count = 1;
     dishesContainer += getDishesContainerTemplate(catIndex, dishesIndex);
   }
@@ -67,23 +56,16 @@ function makeBasketLowerPartVisible() {
 function renderBasketDishes() {
   document.getElementById("basketBoxRenderContent").innerHTML = "";
   document.getElementById("respBasketBoxRenderContent").innerHTML = "";
-  for (
-    let basketDishesIndex = 0;
-    basketDishesIndex < basket.dishes.length;
-    basketDishesIndex++
-  ) {
+  for (let basketDishesIndex = 0; basketDishesIndex < basket.dishes.length; basketDishesIndex++) {
     let basketDish = getBasketDishesTemplate(basketDishesIndex);
     document.getElementById("basketBoxRenderContent").innerHTML += basketDish;
-    document.getElementById("respBasketBoxRenderContent").innerHTML +=
-      basketDish;
+    document.getElementById("respBasketBoxRenderContent").innerHTML += basketDish;
   }
 }
 
 function renderBasketLowerPart() {
-  document.getElementById("basketBoxLower").innerHTML =
-    getBasketLowerPartTemplate();
-  document.getElementById("respBasketBoxLower").innerHTML =
-    getBasketLowerPartTemplate();
+  document.getElementById("basketBoxLower").innerHTML = getBasketLowerPartTemplate();
+  document.getElementById("respBasketBoxLower").innerHTML = getBasketLowerPartTemplate();
 }
 
 function renderBasket() {
@@ -160,17 +142,11 @@ function deleteDishes(basketDishesIndex) {
 function showCounterInAddButton() {
   basket.dishes.forEach((element) => {
     for (let indexCat = 0; indexCat < foods.length; indexCat++) {
-      for (
-        let indexFoodDish = 0;
-        indexFoodDish < foods[indexCat].dishes.length;
-        indexFoodDish++
-      ) {
+      for (let indexFoodDish = 0; indexFoodDish < foods[indexCat].dishes.length; indexFoodDish++) {
         if (element.dataKey == foods[indexCat].dishes[indexFoodDish].dataKey) {
           let dishDataKey = foods[indexCat].dishes[indexFoodDish].dataKey;
           let foodContainerRef = document.querySelector(".food-container");
-          let dishAddBtn = foodContainerRef.querySelector(
-            `[data-key="${dishDataKey}"]`
-          );
+          let dishAddBtn = foodContainerRef.querySelector(`[data-key="${dishDataKey}"]`);
           let buttonButton = dishAddBtn.querySelector("button");
           buttonButton.innerHTML = `${element.count}`;
           buttonButton.classList.add("counter-button");
@@ -183,17 +159,11 @@ function showCounterInAddButton() {
 function hideCounterFromAddButton(basketDishesIndex) {
   let basketDishKey = basket.dishes[basketDishesIndex].dataKey;
   for (let indexCat = 0; indexCat < foods.length; indexCat++) {
-    for (
-      let indexFoodDish = 0;
-      indexFoodDish < foods[indexCat].dishes.length;
-      indexFoodDish++
-    ) {
+    for (let indexFoodDish = 0; indexFoodDish < foods[indexCat].dishes.length; indexFoodDish++) {
       if (basketDishKey == foods[indexCat].dishes[indexFoodDish].dataKey) {
         let dishDataKey = foods[indexCat].dishes[indexFoodDish].dataKey;
         let foodContainerRef = document.querySelector(".food-container");
-        let dishAddBtn = foodContainerRef.querySelector(
-          `[data-key="${dishDataKey}"]`
-        );
+        let dishAddBtn = foodContainerRef.querySelector(`[data-key="${dishDataKey}"]`);
         let buttonButton = dishAddBtn.querySelector("button");
         let image = `<img src="./assets/icon/icons8-plus-24.png" alt=""></img>`;
         buttonButton.innerHTML = image;
@@ -209,10 +179,7 @@ function hideCounterFromAddButton(basketDishesIndex) {
 function scrollToCategory(category) {
   let foodContentContainer = document.getElementById(category);
   let correctur = -98;
-  let foodContentContainerPosition =
-    foodContentContainer.getBoundingClientRect().top +
-    window.scrollY +
-    correctur;
+  let foodContentContainerPosition = foodContentContainer.getBoundingClientRect().top + window.scrollY + correctur;
   window.scrollTo({ top: foodContentContainerPosition });
 }
 
@@ -220,55 +187,39 @@ function scrollToCategory(category) {
 
 function chooseDelivery(element) {
   basket.isDeliverySelected = true;
-  document
-    .getElementById("respDeliverySlider")
-    .classList.remove("transform-slider");
+  document.getElementById("respDeliverySlider").classList.remove("transform-slider");
   element.classList.add("font-bold");
   document.getElementById("respButtonTakeaway").classList.remove("font-bold");
-  document.getElementById("respDeliveryIcon").src =
-    "./assets/icon/bike-orange.png";
-  document.getElementById("respTakeawayIcon").src =
-    "./assets/icon/takeaway-black.png";
-  document
-    .getElementById("deliverySlider")
-    .classList.remove("transform-slider");
+  document.getElementById("respDeliveryIcon").src = "./assets/icon/bike-orange.png";
+  document.getElementById("respTakeawayIcon").src = "./assets/icon/takeaway-black.png";
+  document.getElementById("deliverySlider").classList.remove("transform-slider");
   element.classList.add("font-bold");
   document.getElementById("buttonTakeaway").classList.remove("font-bold");
   document.getElementById("deliveryIcon").src = "./assets/icon/bike-orange.png";
-  document.getElementById("takeawayIcon").src =
-    "./assets/icon/takeaway-black.png";
+  document.getElementById("takeawayIcon").src = "./assets/icon/takeaway-black.png";
   renderBasket();
 }
 
 function chooseTakeaway(element) {
   basket.isDeliverySelected = false;
-  document
-    .getElementById("respDeliverySlider")
-    .classList.add("transform-slider");
+  document.getElementById("respDeliverySlider").classList.add("transform-slider");
   element.classList.add("font-bold");
   document.getElementById("respButtonDelivery").classList.remove("font-bold");
-  document.getElementById("respDeliveryIcon").src =
-    "./assets/icon/bike-black.png";
-  document.getElementById("respTakeawayIcon").src =
-    "./assets/icon/takeaway-orange.png";
+  document.getElementById("respDeliveryIcon").src = "./assets/icon/bike-black.png";
+  document.getElementById("respTakeawayIcon").src = "./assets/icon/takeaway-orange.png";
   document.getElementById("deliverySlider").classList.add("transform-slider");
   element.classList.add("font-bold");
   document.getElementById("buttonDelivery").classList.remove("font-bold");
   document.getElementById("deliveryIcon").src = "./assets/icon/bike-black.png";
-  document.getElementById("takeawayIcon").src =
-    "./assets/icon/takeaway-orange.png";
+  document.getElementById("takeawayIcon").src = "./assets/icon/takeaway-orange.png";
   renderBasket();
 }
 
 // function for order ready dialog
 
 function completeOrder() {
-  document
-    .getElementById("orderReadyDialog")
-    .classList.remove("transform-order-ready-dialog");
-  document
-    .getElementById("respOrderReadyDialog")
-    .classList.remove("transform-order-ready-dialog");
+  document.getElementById("orderReadyDialog").classList.remove("transform-order-ready-dialog");
+  document.getElementById("respOrderReadyDialog").classList.remove("transform-order-ready-dialog");
 
   setTimeout(() => {
     basket.dishes = [];
@@ -276,14 +227,10 @@ function completeOrder() {
   }, 500);
 
   setTimeout(() => {
-    document
-      .getElementById("orderReadyDialog")
-      .classList.add("transform-order-ready-dialog");
-    document
-      .getElementById("respOrderReadyDialog")
-      .classList.add("transform-order-ready-dialog");
+    document.getElementById("orderReadyDialog").classList.add("transform-order-ready-dialog");
+    document.getElementById("respOrderReadyDialog").classList.add("transform-order-ready-dialog");
     showUnshowRespBasket();
-    
+
     renderFoodContentContainer();
   }, 2500);
 }
@@ -291,43 +238,22 @@ function completeOrder() {
 // function to show / unshow responsiv basket
 
 function showUnshowRespBasket() {
-  document
-    .getElementById("responsiveBasket")
-    .classList.toggle("transform-resp-basket");
+  document.getElementById("responsiveBasket").classList.toggle("transform-resp-basket");
 }
 
 // function to limt basket max-height by header or footer
 
 window.addEventListener("scroll", () => {
   const documentHeight = document.documentElement.scrollHeight;
-  const headerHeight = document
-    .getElementById("header")
-    .getBoundingClientRect().height;
-  const footerHeight = document
-    .getElementById("footer")
-    .getBoundingClientRect().height;
-
+  const headerHeight = document.getElementById("header").getBoundingClientRect().height;
+  const footerHeight = document.getElementById("footer").getBoundingClientRect().height;
   if (window.scrollY < headerHeight) {
     let headerViewable = Math.floor(headerHeight - scrollY);
-    document.getElementById("basketBox").style.maxHeight = `${
-      window.innerHeight - headerViewable
-    }px`;
-  } else if (
-    window.scrollY > headerHeight &&
-    window.scrollY + window.innerHeight < documentHeight - footerHeight
-  ) {
-    document.getElementById(
-      "basketBox"
-    ).style.maxHeight = `${window.innerHeight}px`;
-  } else if (
-    window.scrollY + window.innerHeight >
-    documentHeight - footerHeight
-  ) {
-    let footerViewable = Math.floor(
-      window.scrollY + window.innerHeight - (documentHeight - footerHeight)
-    );
-    document.getElementById("basketBox").style.maxHeight = `${
-      window.innerHeight - footerViewable
-    }px`;
+    document.getElementById("basketBox").style.maxHeight = `${window.innerHeight - headerViewable}px`;
+  } else if (window.scrollY > headerHeight && window.scrollY + window.innerHeight < documentHeight - footerHeight) {
+    document.getElementById("basketBox").style.maxHeight = `${window.innerHeight}px`;
+  } else if (window.scrollY + window.innerHeight > documentHeight - footerHeight) {
+    let footerViewable = Math.floor(window.scrollY + window.innerHeight - (documentHeight - footerHeight));
+    document.getElementById("basketBox").style.maxHeight = `${window.innerHeight - footerViewable}px`;
   }
 });

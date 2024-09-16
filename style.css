@@ -95,11 +95,15 @@ main {
   width: 80px;
   height: 80px;
   background-color: var(--color-logoBackground);
-  bottom: 1rem;
+  left: 50%;
+  bottom: -0.25rem;
+  transform: translate(-50%);
   border-radius: 0.5rem;
+  border: 0.25rem solid var(--color-orange);
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 .nyc-bites-logo {
   width: 80%;
